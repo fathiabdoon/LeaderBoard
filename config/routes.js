@@ -69,10 +69,7 @@ module.exports.routes = {
     action: 'viewBoards'
   },
 
-  'get /board/:id': {
-    controller: 'LeaderboardController',
-    action: 'viewSelf'
-  },
+  
 
   'get /board/new': {
     view: 'board/new'
@@ -81,8 +78,12 @@ module.exports.routes = {
   'post /board/new': {
     controller: 'LeaderboardController',
     action: 'newLeaderboard'
-  }
+  },
 
+  'get /board/:id': {
+    controller: 'LeaderboardController',
+    action: 'viewSelf'
+  }
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

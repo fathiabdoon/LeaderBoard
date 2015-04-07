@@ -8,7 +8,7 @@
 module.exports = {
 	newLeaderboard: function(req, res){
 		Leaderboard.create({
-			title: req.body.title,
+			title: "How many times " + req.body.title,
 			owner: req.session.user
 		}).exec(function(err, Leaderboard){
 			res.redirect("/board/all")
@@ -16,7 +16,7 @@ module.exports = {
 	},
 
 	viewBoards: function(req, res){
-		Leaderboard.find().sort('title').exec(function(err, boards){
+		Leaderboard.find().sort('createdAt').exec(function(err, boards){
 			res.view("board/all", {
 				boards: boards
 			})

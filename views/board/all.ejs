@@ -1,1 +1,9 @@
-<h1>These are all the boards</h1>
+<% if (req.session.user) { %>
+	<% for (board in boards) { %>
+	<div class="board">
+		<a href="/board/<%=boards[board].id%>"><h1><%=boards[board].title%> <span><h4> - <%=boards[board].owner.username%> </h4></span></h1></a>
+	</div>
+	<% } %>
+<% } else { %>
+	<p>You need to <a href="/auth/login">Login</a></p>
+<% } %>
