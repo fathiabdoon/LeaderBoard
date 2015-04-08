@@ -41,7 +41,7 @@ module.exports = {
           if (match) {
             // password match
             req.session.user = user;
-            res.redirect('/');
+            res.redirect('/board/all');
           } else {
             // invalid password
             if (req.session.user) req.session.user = null;
@@ -71,7 +71,7 @@ module.exports = {
           console.log(err);
           console.log("created user", user);
           req.session.user = user;
-          res.redirect('/');
+          res.redirect('/board/all');
         });
       }
     });

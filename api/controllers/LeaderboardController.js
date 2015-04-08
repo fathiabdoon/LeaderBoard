@@ -16,14 +16,14 @@ module.exports = {
 	},
 
 	viewBoards: function(req, res){
-		Leaderboard.find().sort('createdAt').exec(function(err, boards){
+		Leaderboard.find().populate("owner").sort('createdAt').exec(function(err, boards){
 			res.view("board/all", {
 				boards: boards
 			})
 		})
 	},
     viewSelf: function(req, res) {
-    	Leaderboard.findOneById(req.param('id')).exec(function(err, board) {
+    	Leaderboard.findOneById(req.param('id')).populate("owner").exec(function(err, board) {
       		res.view('board/self', {
         		board: board
       		});
